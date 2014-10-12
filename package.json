@@ -4,7 +4,7 @@
   "description": "It's a node module of AngNode project",
   "main": "index.js",
   "scripts": {
-    "test": "node tests/index.js"
+    "test": "node tests/index.js --verbose"
   },
   "repository": {
     "type": "git",
