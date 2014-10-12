@@ -20,11 +20,6 @@ module.exports = (grunt) ->
                     { filter: 'isFile', src: 'dev/config.json', dest: 'config.json' }
                     { filter: 'isFile', src: 'dev/tests/config.json', dest: 'tests/config.json' }
                 ]
-        shell:
-            options:
-                stderr: false
-            target:
-                command: 'npm test'
         flo:
             serve:
                 options:
@@ -39,7 +34,7 @@ module.exports = (grunt) ->
                             'dev/tests/**/*.coffee',
                             'dev/tests/**/**/*.coffee',
                         ]
-                        tasks: ['coffee:*', 'shell:*']
+                        tasks: ['coffee:*']
                         callback:
                             reload: true
                     }, {
@@ -50,13 +45,6 @@ module.exports = (grunt) ->
                         tasks: ['copy:*']
                         callback:
                             reload: true
-                    }, {
-                        files: [
-                            'dev/tests/*.coffee',
-                            'dev/tests/**/*.coffee',
-                            'dev/tests/**/**/*.coffee',
-                        ]
-                        tasks: ['shell:*']
                     }]
 
     grunt.registerTask 'default', ['flo']
