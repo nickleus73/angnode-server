@@ -6,7 +6,7 @@ app = require '../../../lib/app'
 
 module.exports = ( ->
     (suite) ->
-        suite.addBatch {
+        suite.addBatch
             'Bootstrapper tests methods':
                 'Bootstrapper:set should be a function': ->
                     a = new app()
@@ -52,5 +52,16 @@ module.exports = ( ->
                     a = new app()
                     assert.isFunction a.run
                     return
-        }
+        .addBatch
+            'Bootstrapper test run method':
+                topic: ->
+                    a = new app()
+                    a.set 'port', 9000
+
+                    a.run @callback
+                    return
+                'Bootstrapper:run should be return a function in callback': (app, server, e) ->
+                    assert.isFunction app
+                    assert.isObject server
+                    return
 )()

@@ -5,7 +5,7 @@ server = require '../../index'
 
 module.exports = ( ->
     (suite) ->
-        suite.addBatch {
+        suite.addBatch
             'Server tests methods':
                 'Server:bootstrap should be a function': ->
                     s = new server()
@@ -31,9 +31,15 @@ module.exports = ( ->
                     s = new server()
                     assert.isFunction s.run
                     return
-                'Server:run should be ...': ->
+        .addBatch
+            'Server test run method':
+                topic: ->
                     s = new server()
-                    s.run()
+
+                    s.run @callback
                     return
-        }
+                'Server:run should return function and object': (app, server, e) ->
+                    assert.isFunction app
+                    assert.isObject server
+                    return
 )()

@@ -6,7 +6,7 @@ events = require 'events'
 module.exports = class App
     constructor: ->
         @app = express()
-        @app.set 'event', new events.EventEmitter
+        @app.set 'event', new events.EventEmitter()
         return
     set: (key, value) ->
         @app.set key, value
@@ -26,4 +26,12 @@ module.exports = class App
         helpers.initHelper app
         return
     run: (callback) ->
+        app = @app
+
+        port = app.get 'port'
+
+        server = app.listen port, ->
+            if typeof callback isnt 'undefined'
+                callback app, server
+                return
         return

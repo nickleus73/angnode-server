@@ -12,4 +12,8 @@ module.exports = class Server
             @bootstrapper = @getBootstrapper()
 
         @bootstrapper.run()
+
+        if typeof callback isnt 'undefined'
+            @bootstrapper.getApp().run callback
+
         return
