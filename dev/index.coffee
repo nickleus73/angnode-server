@@ -11,5 +11,5 @@ module.exports = class Server
         if typeof @bootstrapper is 'undefined'
             @bootstrapper = @getBootstrapper()
 
-        @bootstraopper.run()
+        @bootstrapper.run()
         return
