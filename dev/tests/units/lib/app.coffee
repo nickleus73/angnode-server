@@ -52,6 +52,10 @@ module.exports = ( ->
                     a = new app()
                     assert.isFunction a.run
                     return
+                'Bootstrapper:setHelper should be function': ->
+                    a = new app()
+                    assert.isFunction a.setHelpers
+                    return
         .addBatch
             'Bootstrapper test run method':
                 topic: ->

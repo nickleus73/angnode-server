@@ -1,6 +1,7 @@
 'use strict'
 
 app = require './app'
+helper = require './helper'
 
 module.exports = class Bootstrapper
     getApp: ->
@@ -11,11 +12,13 @@ module.exports = class Bootstrapper
         return
     initApp: ->
         console.log 'InitApp loaded'
-        @app = new app()
+        @app = new app
         @app.set 'port', @config.port
         return
     initHelper: ->
         console.log 'InitHelper loaded'
+        @helper = new helper
+        @app.set 'helper', @helper
         return
     run: (obj) ->
         if typeof obj is 'undefined'

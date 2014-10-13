@@ -71,4 +71,7 @@ module.exports = ( ->
                     assert.isFunction app
                     assert.isObject server
                     return
+                'Bootstrapper.getApp().get "helper" should return an object': (app, server, e) ->
+                    assert.isObject app.get 'helper'
+                    return
 )()
