@@ -47,11 +47,22 @@ module.exports = ( ->
                     return
                 'Helper:setPathes should set one item': ->
                     h = new helper
-                    h.setPathes(config.path['helper directories'])
+                    h.setPathes config.path['helper directories']
                     assert.equal h.getPath().length, 1
                     return
                 'Helper:initHelpers should be function': ->
                     h = new helper
                     assert.isFunction h.initHelpers
+                    return
+                'Helper:getHelpers should be function': ->
+                    h = new helper
+                    assert.isFunction h.getHelpers
+                    return
+                'Helper:getHelpers set helpers property who should return array': ->
+                    h = new helper
+                    h.setPathes config.path['helper directories']
+                    h.getHelpers()
+                    assert.isArray h.helpers
+                    assert.strictEqual h.helpers.length > 0, true
                     return
 )()
