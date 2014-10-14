@@ -11,11 +11,13 @@ module.exports = (grunt) ->
                     'lib/bootstrapper.js': 'dev/lib/bootstrapper.coffee'
                     'lib/app.js': 'dev/lib/app.coffee'
                     'lib/helper.js': 'dev/lib/helper.coffee'
+                    'helpers/controller.js': 'dev/helpers/controller.coffee'
                     'tests/index.js': 'dev/tests/index.coffee'
                     'tests/units/index.js': 'dev/tests/units/index.coffee'
                     'tests/units/lib/bootstrapper.js': 'dev/tests/units/lib/bootstrapper.coffee'
                     'tests/units/lib/app.js': 'dev/tests/units/lib/app.coffee'
                     'tests/units/lib/helper.js': 'dev/tests/units/lib/helper.coffee'
+                    'tests/units/helpers/controller.js': 'dev/tests/units/helpers/controller.coffee'
         copy:
             dist:
                 files: [
@@ -32,6 +34,7 @@ module.exports = (grunt) ->
                         files: [
                             'dev/*.coffee',
                             'dev/**/*.coffee',
+                            'dev/**/**/*.coffee',
                             'dev/tests/*.coffee',
                             'dev/tests/**/*.coffee',
                             'dev/tests/**/**/*.coffee',
