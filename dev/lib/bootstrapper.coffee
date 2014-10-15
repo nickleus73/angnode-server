@@ -18,6 +18,9 @@ module.exports = class Bootstrapper
     initHelper: ->
         console.log 'InitHelper loaded'
         @helper = new helper
+        @helper.setPathes @config.path['helper directories']
+        @helper.getHelpers()
+
         @app.set 'helper', @helper
         return
     run: (obj) ->

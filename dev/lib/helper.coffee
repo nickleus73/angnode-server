@@ -35,8 +35,7 @@ module.exports = class Helper
         n = pathes.length - 1
 
         for p in @getPath()
-            p = path.resolve p
-
+            p = path.resolve path.join __dirname, p
             files = fs.readdirSync p
             n_files = files.length - 1
 
@@ -44,9 +43,12 @@ module.exports = class Helper
                 for file in files
                     if file.substr -3 is '.js'
                         @helpers.push path.join p, file
-    initHelpers: ->
-        try
-            x + x
-        catch e
+    initHelpers: (app) ->
+        for helper_file in @helpers
+            try
+                helper = require helper_file
+
+                h = new helper app
+            catch e
 
         return

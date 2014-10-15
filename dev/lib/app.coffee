@@ -22,11 +22,13 @@ module.exports = class App
 
         value
     setHelpers: (app) ->
-        helpers = @get 'helpers'
-        helpers.initHelper app
+        helpers = @get 'helper'
+        helpers.initHelpers app
         return
     run: (callback) ->
         app = @app
+
+        @setHelpers app
 
         port = app.get 'port'
 
