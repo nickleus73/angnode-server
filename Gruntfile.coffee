@@ -17,6 +17,7 @@ module.exports = (grunt) ->
                     'tests/units/lib/bootstrapper.js': 'dev/tests/units/lib/bootstrapper.coffee'
                     'tests/units/lib/app.js': 'dev/tests/units/lib/app.coffee'
                     'tests/units/lib/helper.js': 'dev/tests/units/lib/helper.coffee'
+                    'tests/units/helpers/controller.js': 'dev/tests/units/helpers/controller.coffee'
         copy:
             dist:
                 files: [
