@@ -6,7 +6,9 @@ events = require 'events'
 module.exports = class App
     constructor: ->
         @app = express()
-        @app.set 'event', new events.EventEmitter()
+        @app.set 'event', new events.EventEmitter
+
+        @app.get('event').on 'all helpers loaded', @runHelpers
         return
     set: (key, value) ->
         @app.set key, value
@@ -22,9 +24,12 @@ module.exports = class App
 
         value
     setHelpers: (app) ->
-        helpers = @get 'helper'
-
-        helpers.initHelpers app
+        @helpers = @get 'helper'
+        @helpers.initHelpers app
+        return
+    runHelpers: (helpers, app) ->
+        for helper in helpers.getHelpersInitialized()
+            helper.run()
         return
     run: (callback) ->
         app = @app

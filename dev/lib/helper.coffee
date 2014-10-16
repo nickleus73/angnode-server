@@ -43,14 +43,23 @@ module.exports = class Helper
                     if file.substr -3 is '.js'
                         @helpers_pathes.push path.join p, file
         return
+    getHelpersInitialized: ->
+        @h
     initHelpers: (app) ->
+        event = app.get 'event'
+        @h = []
+
+        n = @helpers_pathes.length - 1
+
         for helper_file in @helpers_pathes
             try
                 helper = require helper_file
 
-                h = new helper app
+                @h.push new helper app
 
-                h.run()
+                if n-- is 0
+                    console.log 'All helper initialized'
+                    event.emit 'all helpers loaded', @, app
             catch e
 
         return

@@ -10,7 +10,7 @@ module.exports = ( ->
                 'Helper::Controller:contructor should be a function': ->
                     assert.isFunction controller.constructor
                     return
-                'Helper::Controller should be equal "/controllers"': ->
-                    c = new controller 'app'
+                'Helper::Controller:default_path should be equal "./api/controllers"': ->
+                    c = new controller
                     return
 )()
