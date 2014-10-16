@@ -14,6 +14,7 @@ module.exports = (grunt) ->
                     'helpers/controller.js': 'dev/helpers/controller.coffee'
                     'helpers/model.js': 'dev/helpers/model.coffee'
                     'helpers/logger.js': 'dev/helpers/logger.coffee'
+                    'helpers/database.js': 'dev/helpers/database.coffee'
                     'tests/index.js': 'dev/tests/index.coffee'
                     'tests/units/index.js': 'dev/tests/units/index.coffee'
                     'tests/units/lib/bootstrapper.js': 'dev/tests/units/lib/bootstrapper.coffee'
