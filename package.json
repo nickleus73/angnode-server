@@ -6,6 +6,9 @@
   "scripts": {
     "test": "node tests/index.js --verbose"
   },
+  "bin": {
+      "load-any-fixture": "./bin/load-any-fixture"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:nickleus73/angnode-server.git"
