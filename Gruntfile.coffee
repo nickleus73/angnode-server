@@ -27,7 +27,7 @@ module.exports = (grunt) ->
         flo:
             serve:
                 options:
-                    port: 9999
+                    port: 9000
                     dir: './'
                     glob: []
                     resolvers: [{

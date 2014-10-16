@@ -56,16 +56,19 @@ module.exports = ( ->
                     a = new app()
                     assert.isFunction a.setHelpers
                     return
-        .addBatch
+        ###.addBatch
             'Bootstrapper test run method':
                 topic: ->
                     a = new app()
-                    a.set 'port', 9000
+                    a.set 'port', 9001
 
                     a.run @callback
                     return
-                'Bootstrapper:run should be return a function in callback': (app, server, e) ->
+                'Bootstrapper:run should be return a function in callback': (er, app, server, e) ->
+                    console.log 'Enter allback'
+                    console.log app
+                    console.log 'Callback'
                     assert.isFunction app
                     assert.isObject server
-                    return
+                    return###
 )()

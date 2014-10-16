@@ -11,7 +11,6 @@ module.exports = class Helper
             return
 
         @pathes.push p
-
         return
     getPath: (index) ->
         if typeof @pathes is 'undefined'
@@ -29,12 +28,12 @@ module.exports = class Helper
             @addPath p
         return
     getHelpers: ->
-        @helpers = []
+        @helpers_pathes = []
 
         pathes = @getPath()
         n = pathes.length - 1
 
-        for p in @getPath()
+        for p in pathes
             p = path.resolve path.join __dirname, p
             files = fs.readdirSync p
             n_files = files.length - 1
@@ -42,13 +41,16 @@ module.exports = class Helper
             if n_files isnt -1
                 for file in files
                     if file.substr -3 is '.js'
-                        @helpers.push path.join p, file
+                        @helpers_pathes.push path.join p, file
+        return
     initHelpers: (app) ->
-        for helper_file in @helpers
+        for helper_file in @helpers_pathes
             try
                 helper = require helper_file
 
                 h = new helper app
+
+                h.run()
             catch e
 
         return

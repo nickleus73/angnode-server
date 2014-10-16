@@ -58,11 +58,11 @@ module.exports = ( ->
                     h = new helper
                     assert.isFunction h.getHelpers
                     return
-                'Helper:getHelpers set helpers property who should return array': ->
+                'Helper:getHelpers set helpers_pathes property who should return array': ->
                     h = new helper
                     h.setPathes config.path['helper directories']
                     h.getHelpers()
-                    assert.isArray h.helpers
-                    assert.strictEqual h.helpers.length > 0, true
+                    assert.isArray h.helpers_pathes
+                    assert.strictEqual h.helpers_pathes.length > 0, true
                     return
 )()

@@ -23,14 +23,15 @@ module.exports = class App
         value
     setHelpers: (app) ->
         helpers = @get 'helper'
+
         helpers.initHelpers app
         return
     run: (callback) ->
         app = @app
 
-        @setHelpers app
-
         port = app.get 'port'
+
+        @setHelpers app
 
         server = app.listen port, ->
             if typeof callback isnt 'undefined'

@@ -1,6 +1,7 @@
 {
     "includes": [
         "./tests/units/*",
+        "./tests/units/helpers/*",
         "./tests/units/lib/*"
     ]
 }
