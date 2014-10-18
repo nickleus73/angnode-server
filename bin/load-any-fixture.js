@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var args, base_path, e, fixture_file, fixture_name, fixture_path, fs, path, stats;
+var args, base_path, file_path, fixture_file, fixture_name, fixture_path, fs, path, stats;
 
 path = require('path');
 
@@ -16,13 +16,11 @@ if (typeof args[0] === 'undefined') {
 } else {
   fixture_name = args[0];
   fixture_path = path.resolve(path.join(base_path, fixture_name));
-  try {
-    stats = fs.existsSync(path.resolve(this.default_path));
-    if (stats === true) {
-      require(path.join(fixture_path, fixture_file));
-    }
-  } catch (_error) {
-    e = _error;
+  file_path = path.join(fixture_path, fixture_file);
+  stats = fs.existsSync(file_path);
+  if (stats === true) {
+    require(file_path);
+  } else {
     console.warn("The fixture : " + fixture_name + " doesn't exists.");
   }
 }
