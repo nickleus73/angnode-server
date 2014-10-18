@@ -7,7 +7,7 @@
     "test": "node tests/index.js --verbose"
   },
   "bin": {
-      "load-any-fixture": "./bin/load-any-fixture"
+    "load-any-fixture": "./bin/load-any-fixture.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,9 @@
   "keywords": [
     "nodejs"
   ],
-  "author": "MORICET Nicolas",
+  "author": {
+    "name": "MORICET Nicolas"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nickleus73/angnode-server/issues"
@@ -28,10 +30,20 @@
     "grunt-fb-flo": "~0.2.1",
     "grunt-shell": "~1.1.1",
     "load-grunt-tasks": "~0.6.0",
-    "minimatch": "~1.0.0"
+    "minimatch": "~1.0.0",
+    "grunt-header": "~1.0.0"
   },
   "dependencies": {
     "express": "~4.9.7",
     "events": "~1.0.2"
-  }
+  },
+  "readme": "angnode-server\n==============\n\nIt's a node modules of AngNode project\n",
+  "readmeFilename": "README.md",
+  "_id": "angnode-server@0.0.1",
+  "dist": {
+    "shasum": "14b207f577136ed841d533815ba20a2d60372f56"
+  },
+  "_resolved": "git://github.com/nickleus73/angnode-server#a404c67e2a5ab5968c1f2978a786cbe28267a6d7",
+  "_from": "git://github.com/nickleus73/angnode-server#master",
+  "_fromGithub": true
 }
