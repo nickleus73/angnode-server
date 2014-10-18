@@ -1,14 +1,20 @@
 'use strict'
 
+_ = require 'underscore'
 app = require './app'
 helper = require './helper'
 
 module.exports = class Bootstrapper
+    extendConfig: (obj) ->
+        initial_config = require '../config.json'
+        if typeof obj is 'undefined'
+            return initial_config
+        return _.extend initial_config, obj
     getApp: ->
         @app
     initConfig: ->
         console.log 'InitConfig loaded'
-        @config = require '../config.json'
+        @config = @extendConfig()
         return
     initApp: ->
         console.log 'InitApp loaded'
