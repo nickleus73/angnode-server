@@ -1,6 +1,7 @@
 'use strict'
 path = require 'path'
 express = require 'express'
+body_parser = require 'body-parser'
 
 module.exports = class App
     constructor: ->
@@ -14,4 +15,10 @@ module.exports = class App
         }
 
         @app.use express.static path.resolve @default_path
+
+        @app.use body_parser.json()
+
+        @app.use body_parser.urlencoded {
+            extended: true
+        }
         return
