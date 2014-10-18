@@ -1,4 +1,4 @@
-A'use strict'
+'use strict'
 
 mongoose = require 'mongoose'
 
