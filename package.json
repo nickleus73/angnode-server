@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "express": "~4.9.7",
-    "events": "~1.0.2"
+    "events": "~1.0.2",
+    "underscore": "~1.7.0"
   },
   "readme": "angnode-server\n==============\n\nIt's a node modules of AngNode project\n",
   "readmeFilename": "README.md",
