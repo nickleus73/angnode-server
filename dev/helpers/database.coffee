@@ -10,7 +10,7 @@ module.exports = class Database
         port = 27017
         database = 'app'
 
-        @uri = 'mongodb://' + host + ':' + port + ':' + database
+        @uri = 'mongodb://' + host + ':' + port + '/' + database
 
         return
     run: ->
@@ -23,6 +23,8 @@ module.exports = class Database
         con = mongoose.connect @uri
 
         connect = con.connection
+
+        @app.set 'database', con
 
         connect.on 'error', (e) ->
             that.app.get('logger').error 'error connection to database', {
